@@ -69,7 +69,8 @@
         },
         "FILESTASH_GENERAL__NAME": {
             "description": "Name as shown in the UI. Default: 'Filestash' (maps to general.name).",
-            "required": false
+            "required": false,
+            "value": "Filestash"
         },
         "FILESTASH_GENERAL__HOST": {
             "description": "The host people need to use to access this server. Eg: 'demo.filestash.app' (maps to general.host).",
@@ -77,11 +78,13 @@
         },
         "FILESTASH_GENERAL__FORCE_SSL": {
             "description": "Enable the web security mechanism called 'Strict Transport Security'. Default: false (maps to general.force_ssl).",
-            "required": false
+            "required": false,
+            "value": "false"
         },
         "FILESTASH_GENERAL__EDITOR": {
             "description": "Keybinding to be use in the editor. Default: 'emacs' (maps to general.editor).",
-            "required": false
+            "required": false,
+            "value": "emacs"
         },
         "FILESTASH_GENERAL__LOGOUT": {
             "description": "Redirection URL whenever user click on the logout button (maps to general.logout).",
@@ -89,47 +92,58 @@
         },
         "FILESTASH_GENERAL__DISPLAY_HIDDEN": {
             "description": "Should files starting with a dot be visible by default? Default: false (maps to general.display_hidden).",
-            "required": false
+            "required": false,
+            "value": "false"
         },
         "FILESTASH_GENERAL__REFRESH_AFTER_UPLOAD": {
             "description": "Refresh directory listing after upload. Default: false (maps to general.refresh_after_upload).",
-            "required": false
+            "required": false,
+            "value": "false"
         },
         "FILESTASH_GENERAL__OPEN_MODE": {
             "description": "How files and folders are opened in the file browser. Default: 'single_click' (maps to general.open_mode).",
-            "required": false
+            "required": false,
+            "value": "single_click"
         },
         "FILESTASH_GENERAL__UPLOAD_BUTTON": {
             "description": "Display the upload button on any device. Default: false (maps to general.upload_button).",
-            "required": false
+            "required": false,
+            "value": "false"
         },
         "FILESTASH_GENERAL__UPLOAD_POOL_SIZE": {
             "description": "Maximum number of files upload in parallel. Default: 15 (maps to general.upload_pool_size).",
-            "required": false
+            "required": false,
+            "value": "15"
         },
         "FILESTASH_GENERAL__UPLOAD_CHUNK_SIZE": {
             "description": "Size of Chunks for Uploads in MB. Default: 0 (maps to general.upload_chunk_size).",
-            "required": false
+            "required": false,
+            "value": "0"
         },
         "FILESTASH_GENERAL__BUFFER_SIZE": {
             "description": "I/O buffer size for transfers. Larger buffers boost throughput on 20 GbE+ networks but use more memory. Default: 'medium' (maps to general.buffer_size).",
-            "required": false
+            "required": false,
+            "value": "medium"
         },
         "FILESTASH_GENERAL__FILEPAGE_DEFAULT_VIEW": {
             "description": "Default layout for files and folder on the file page. Default: 'grid' (maps to general.filepage_default_view).",
-            "required": false
+            "required": false,
+            "value": "grid"
         },
         "FILESTASH_GENERAL__FILEPAGE_DEFAULT_SORT": {
             "description": "Default order for files and folder on the file page. Default: 'type' (maps to general.filepage_default_sort).",
-            "required": false
+            "required": false,
+            "value": "type"
         },
         "FILESTASH_GENERAL__COOKIE_TIMEOUT": {
             "description": "Authentication Cookie expiration in minutes. Default: 60 * 24 * 7 = 1 week (maps to general.cookie_timeout).",
-            "required": false
+            "required": false,
+            "value": "10080"
         },
         "FILESTASH_GENERAL__EXTENDED_SESSION": {
             "description": "Store extra auth data in session. Default: false (maps to general.extended_session).",
-            "required": false
+            "required": false,
+            "value": "false"
         },
         "FILESTASH_GENERAL__CUSTOM_CSS": {
             "description": "Setcustom css code for your instance (maps to general.custom_css).",
@@ -137,15 +151,18 @@
         },
         "FILESTASH_FEATURES__API__ENABLE": {
             "description": "Enable/Disable the API. Default: true (maps to features.api.enable).",
-            "required": false
+            "required": false,
+            "value": "true"
         },
         "FILESTASH_FEATURES__SHARE__ENABLE": {
             "description": "Enable/Disable the share feature. Default: true (maps to features.share.enable).",
-            "required": false
+            "required": false,
+            "value": "true"
         },
         "FILESTASH_FEATURES__SHARE__DEFAULT_ACCESS": {
             "description": "Default access for shared links. Default: 'editor' (maps to features.share.default_access).",
-            "required": false
+            "required": false,
+            "value": "editor"
         },
         "FILESTASH_FEATURES__SHARE__REDIRECT": {
             "description": "When set, shared links will perform a redirection to another link. Example: https://example.com?full_path={{path}} (maps to features.share.redirect).",
@@ -157,7 +174,8 @@
         },
         "FILESTASH_FEATURES__PROTECTION__ENABLE_CHROMECAST": {
             "description": "Enable users to stream content on a chromecast device. This feature requires the browser to access google's server to download the chromecast SDK. Default: true (maps to features.protection.enable_chromecast).",
-            "required": false
+            "required": false,
+            "value": "true"
         },
         "FILESTASH_FEATURES__PROTECTION__SIGNATURE": {
             "description": "Enforce signature when using URL parameters in the authentication process (maps to features.protection.signature).",
@@ -165,19 +183,23 @@
         },
         "FILESTASH_LOG__ENABLE": {
             "description": "Enable/disable logging. Default: true (maps to log.enable).",
-            "required": false
+            "required": false,
+            "value": "true"
         },
         "FILESTASH_LOG__TELEMETRY": {
             "description": "We won't share anything with any third party. This will only to be used to improve our software. Default: false (maps to log.telemetry).",
-            "required": false
+            "required": false,
+            "value": "false"
         },
         "FILESTASH_EMAIL__SERVER": {
             "description": "Address of the SMTP email server. Default: 'smtp.gmail.com' (maps to email.server).",
-            "required": false
+            "required": false,
+            "value": "smtp.gmail.com"
         },
         "FILESTASH_EMAIL__PORT": {
             "description": "Port of the SMTP email server. Eg: 587. Default: 587 (maps to email.port).",
-            "required": false
+            "required": false,
+            "value": "587"
         },
         "FILESTASH_EMAIL__USERNAME": {
             "description": "The username for authenticating to the SMTP server. Eg: 'username@gmail.com' (maps to email.username).",
