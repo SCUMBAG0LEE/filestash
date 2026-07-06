@@ -1,0 +1,32 @@
+{
+    "general": {
+        "name": "Filestash",
+        "host": "",
+        "force_ssl": true
+    },
+    "features": {
+        "share": {
+            "enable": true
+        }
+    },
+    "log": {
+        "enable": true,
+        "level": "INFO"
+    },
+    "middleware": {
+        "identity_provider": {
+            "type": "passthrough",
+            "params": "{\"type\":\"passthrough\",\"strategy\":\"direct\"}"
+        },
+        "attribute_mapping": {
+            "related_backend": "S3",
+            "params": "{\"S3\":{\"type\":\"s3\",\"access_key_id\":\"{{ .ENV_S3_ACCESS_KEY_ID }}\",\"secret_access_key\":\"{{ .ENV_S3_SECRET_ACCESS_KEY }}\",\"endpoint\":\"{{ .ENV_S3_ENDPOINT }}\",\"region\":\"{{ .ENV_S3_REGION }}\",\"path\":\"{{ .ENV_S3_BUCKET }}\"}}"
+        }
+    },
+    "connections": [
+        {
+            "type": "s3",
+            "label": "S3"
+        }
+    ]
+}

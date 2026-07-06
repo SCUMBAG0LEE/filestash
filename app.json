@@ -1,0 +1,71 @@
+{
+    "name": "Filestash",
+    "description": "A modern web-based file manager for your DigitalOcean Spaces (S3-compatible) storage. Provides a beautiful interface to browse, upload, download, edit, and share files.",
+    "logo": "https://raw.githubusercontent.com/mickael-kerjean/filestash/master/.assets/logo.png",
+    "repository": "https://github.com/SCUMBAG0LEE/filestash",
+    "keywords": [
+        "file-manager",
+        "s3",
+        "digitalocean-spaces",
+        "cloud-storage",
+        "web-file-browser"
+    ],
+    "stack": "container",
+    "formation": {
+        "web": {
+            "quantity": 1,
+            "size": "eco"
+        }
+    },
+    "env": {
+        "ADMIN_PASSWORD": {
+            "description": "Password for the Filestash admin panel (/admin). Required for initial setup.",
+            "required": true
+        },
+        "APPLICATION_URL": {
+            "description": "The public URL of your Filestash instance (e.g. https://your-app.herokuapp.com). Used for CORS, redirects, and shared links.",
+            "required": false
+        },
+        "S3_ACCESS_KEY_ID": {
+            "description": "DigitalOcean Spaces access key ID. Found in DO Control Panel > API > Spaces Keys.",
+            "required": true
+        },
+        "S3_SECRET_ACCESS_KEY": {
+            "description": "DigitalOcean Spaces secret access key. Shown once when you generate the key.",
+            "required": true
+        },
+        "S3_ENDPOINT": {
+            "description": "DigitalOcean Spaces endpoint URL (e.g. https://nyc3.digitaloceanspaces.com). Must include the region.",
+            "required": true,
+            "value": "https://nyc3.digitaloceanspaces.com"
+        },
+        "S3_REGION": {
+            "description": "DigitalOcean Spaces region (e.g. nyc3, sfo3, sgp1, fra1, ams3, syd1). Must match the endpoint.",
+            "required": true,
+            "value": "nyc3"
+        },
+        "S3_BUCKET": {
+            "description": "Default S3 bucket (Space name) to open on login. Leave empty to show all buckets.",
+            "required": false,
+            "value": ""
+        },
+        "FILESTASH_PORT": {
+            "description": "Port the application listens on. Automatically set by Heroku via $PORT — do not override unless necessary.",
+            "required": false
+        },
+        "CONFIG_SECRET": {
+            "description": "Encryption key for sensitive config values. Auto-generated if not set. Set this to persist config encryption across dyno restarts.",
+            "required": false
+        },
+        "CONFIG_ENCRYPT": {
+            "description": "Enable/disable config encryption. Set to 'false' to disable. Default: true.",
+            "required": false,
+            "value": "true"
+        },
+        "LOG_LEVEL": {
+            "description": "Logging verbosity. Options: DEBUG, INFO, WARNING, ERROR. Default: INFO.",
+            "required": false,
+            "value": "INFO"
+        }
+    }
+}

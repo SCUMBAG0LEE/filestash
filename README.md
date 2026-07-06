@@ -57,6 +57,35 @@ To install Filestash, head to the [Getting started](https://www.filestash.app/do
 If you want guidance and expert help on your file management problem, [book a call](https://www.filestash.app/tunnel/demo/?origin=github) and let's figure out if Filestash is the right platform for you.
 
 
+# Deploy to Heroku
+
+Deploy this fork to Heroku with one click. Pre-configured for **DigitalOcean Spaces** (S3-compatible) with automatic login — no manual setup needed.
+
+[![Deploy to Heroku](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/SCUMBAG0LEE/filestash)
+
+### Required Environment Variables
+
+| Variable | Description |
+|----------|-------------|
+| `ADMIN_PASSWORD` | Password for the Filestash admin panel (`/admin`) |
+| `S3_ACCESS_KEY_ID` | DigitalOcean Spaces access key ID |
+| `S3_SECRET_ACCESS_KEY` | DigitalOcean Spaces secret access key |
+| `S3_ENDPOINT` | Spaces endpoint (e.g. `https://nyc3.digitaloceanspaces.com`) |
+| `S3_REGION` | Spaces region (e.g. `nyc3`, `sfo3`, `sgp1`, `fra1`) |
+
+### Optional Environment Variables
+
+| Variable | Description |
+|----------|-------------|
+| `S3_BUCKET` | Default bucket to open on login (leave empty to list all) |
+| `APPLICATION_URL` | Public URL of your app (for redirects and shared links) |
+| `LOG_LEVEL` | Logging level: `DEBUG`, `INFO`, `WARNING`, `ERROR` |
+| `CONFIG_SECRET` | Encryption key for config values (persists across restarts) |
+| `CONFIG_ENCRYPT` | Enable/disable config encryption (`true`/`false`) |
+
+> **Note:** This deployment uses the Heroku **Eco** dyno plan with Docker (container stack). The filesystem is ephemeral, so config changes made via the admin panel will be lost on dyno restart. Use environment variables for persistent configuration.
+
+
 # Vision & Philosophy
 
 Our goal is simple: **to build the best file management platform ever made. Period.** But "best" means different things to different people, so we made everything pluggable. The core defines interfaces, plugins implement them. Disagree with our implementation? Write your own. Anything that isn't a fundamental truth of the universe and might spark a debate belongs in a plugin. Literally every piece listed in the key features is a plugin you can swap for another implementation or remove entirely.

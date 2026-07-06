@@ -27,6 +27,11 @@ var (
 )
 
 func init() {
+	// Bridge Heroku's $PORT to $FILESTASH_PORT so the app binds to the correct port
+	if os.Getenv("PORT") != "" && os.Getenv("FILESTASH_PORT") == "" {
+		os.Setenv("FILESTASH_PORT", os.Getenv("PORT"))
+	}
+
 	// STEP1: setup app
 	rootPath := "data/"
 	if p := os.Getenv("FILESTASH_PATH"); p != "" {
