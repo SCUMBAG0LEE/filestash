@@ -67,6 +67,10 @@
             "required": false,
             "value": "INFO"
         },
+        "FILESTASH_GENERAL__SECRET_KEY": {
+            "description": "The key that's used to encrypt and decrypt session content and shared links. If left empty, it will be automatically generated. Use with caution (maps to general.secret_key).",
+            "required": false
+        },
         "FILESTASH_GENERAL__NAME": {
             "description": "Name as shown in the UI. Default: 'Filestash' (maps to general.name).",
             "required": false,
@@ -212,6 +216,226 @@
         "FILESTASH_EMAIL__FROM": {
             "description": "Email address visible on sent messages. Eg: 'username@gmail.com' (maps to email.from).",
             "required": false
+        },
+        "FILESTASH_FEATURES__SEARCH__ENABLE": {
+            "description": "Enable/Disable full text search automatic indexing. Default: false.",
+            "required": false,
+            "value": "false"
+        },
+        "FILESTASH_FEATURES__SEARCH__FOLDER_EXCLUSION": {
+            "description": "Exclude some specific folder from the crawl / index. Default: node_modules,bower_components,.cache,.npm,.git",
+            "required": false,
+            "value": "node_modules,bower_components,.cache,.npm,.git"
+        },
+        "FILESTASH_FEATURES__SEARCH__PROCESS_MAX": {
+            "description": "Size of the pool containing the indexers. Default: 5",
+            "required": false,
+            "value": "5"
+        },
+        "FILESTASH_FEATURES__SEARCH__PROCESS_PAR": {
+            "description": "How many concurrent indexers are running in the same time. Default: 2",
+            "required": false,
+            "value": "2"
+        },
+        "FILESTASH_FEATURES__SEARCH__REINDEX_TIME": {
+            "description": "Time in hours after which we consider our index to be stale. Default: 24",
+            "required": false,
+            "value": "24"
+        },
+        "FILESTASH_FEATURES__SEARCH__SHARED_INDEX": {
+            "description": "Use a single search index shared across all users. Default: false",
+            "required": false,
+            "value": "false"
+        },
+        "FILESTASH_FEATURES__SEARCH__CYCLE_TIME": {
+            "description": "Time allocation for each cycle in seconds. Default: 10",
+            "required": false,
+            "value": "10"
+        },
+        "FILESTASH_FEATURES__SEARCH__MAX_SIZE": {
+            "description": "Maximum size of files the indexer will perform full text search. Default: 524288000",
+            "required": false,
+            "value": "524288000"
+        },
+        "FILESTASH_FEATURES__SEARCH__INDEXER_EXT": {
+            "description": "Extensions that will be handled by the full text search engine. Default: org,txt,docx,pdf,md,form,xlsx,pptx",
+            "required": false,
+            "value": "org,txt,docx,pdf,md,form,xlsx,pptx"
+        },
+        "FILESTASH_FEATURES__SEARCH__EXPLORE_TIMEOUT": {
+            "description": "When full text search is disabled, the search engine recursively explore directories. Timeout in ms. Default: 1500",
+            "required": false,
+            "value": "1500"
+        },
+        "FILESTASH_FEATURES__WORKFLOW__ENABLE": {
+            "description": "Enable/Disable workflows. Default: true",
+            "required": false,
+            "value": "true"
+        },
+        "FILESTASH_FEATURES__WORKFLOW__WORKERS": {
+            "description": "Number of workers running in parallel. Default: 1",
+            "required": false,
+            "value": "1"
+        },
+        "FILESTASH_FEATURES__PROTECTION__ZIP_TIMEOUT": {
+            "description": "Timeout when user wants to download or extract a zip. Default: 60",
+            "required": false,
+            "value": "60"
+        },
+        "FILESTASH_FEATURES__PROTECTION__DISABLE_CSP": {
+            "description": "Disable the content security policy. Default: false",
+            "required": false,
+            "value": "false"
+        },
+        "FILESTASH_FEATURES__PROTECTION__ENABLE": {
+            "description": "Enable/Disable active protection against scanners. Default: true",
+            "required": false,
+            "value": "true"
+        },
+        "FILESTASH_FEATURES__PROTECTION__DISABLE_SVG": {
+            "description": "Disable the display of SVG documents. Default: true",
+            "required": false,
+            "value": "true"
+        },
+        "FILESTASH_FEATURES__VIDEO__ENABLE_TRANSCODER": {
+            "description": "Enable/Disable on demand video transcoding. Default: true",
+            "required": false,
+            "value": "true"
+        },
+        "FILESTASH_FEATURES__VIDEO__BLACKLIST_FORMAT": {
+            "description": "Video format that won't be transcoded",
+            "required": false
+        },
+        "FILESTASH_FEATURES__VIDEO__ENCODER": {
+            "description": "Video encoder used for on demand HLS transcoding. Default: libx264",
+            "required": false,
+            "value": "libx264"
+        },
+        "FILESTASH_FEATURES__VIDEO__ENABLE_THUMBNAIL": {
+            "description": "Enable/Disable on video thumbnail generation. Default: false",
+            "required": false,
+            "value": "false"
+        },
+        "FILESTASH_FEATURES__IMAGE__ENABLE_IMAGE": {
+            "description": "Enable/Disable image thumbnailing. Default: true",
+            "required": false,
+            "value": "true"
+        },
+        "FILESTASH_FEATURES__IMAGE__THUMBNAIL_SIZE": {
+            "description": "Thumbnail size in pixel. Default: 300",
+            "required": false,
+            "value": "300"
+        },
+        "FILESTASH_FEATURES__IMAGE__THUMBNAIL_QUALITY": {
+            "description": "Image quality on thumbnails. Default: 50",
+            "required": false,
+            "value": "50"
+        },
+        "FILESTASH_FEATURES__IMAGE__THUMBNAIL_CACHING": {
+            "description": "How much time in seconds we want to store a thumbnail in the browser. Default: 259200",
+            "required": false,
+            "value": "259200"
+        },
+        "FILESTASH_FEATURES__IMAGE__IMAGE_QUALITY": {
+            "description": "Image quality on fullsize images. Default: 90",
+            "required": false,
+            "value": "90"
+        },
+        "FILESTASH_FEATURES__IMAGE__IMAGE_CACHING": {
+            "description": "How much time in seconds we want to store images on the browser. Default: 3600",
+            "required": false,
+            "value": "3600"
+        },
+        "FILESTASH_FEATURES__OFFICE__ENABLE": {
+            "description": "Enable/Disable the office suite and options to manage documents. Default: false",
+            "required": false,
+            "value": "false"
+        },
+        "FILESTASH_FEATURES__OFFICE__ONLYOFFICE_SERVER": {
+            "description": "Location of your OnlyOffice server. Default: http://127.0.0.1:8080",
+            "required": false,
+            "value": "http://127.0.0.1:8080"
+        },
+        "FILESTASH_FEATURES__OFFICE__CAN_CHAT": {
+            "description": "Enable/Disable chat in onlyoffice. Default: false",
+            "required": false,
+            "value": "false"
+        },
+        "FILESTASH_FEATURES__OFFICE__CAN_COPY": {
+            "description": "Enable/Disable copy text in onlyoffice. Default: false",
+            "required": false,
+            "value": "false"
+        },
+        "FILESTASH_FEATURES__OFFICE__CAN_COMMENT": {
+            "description": "Enable/Disable comments in onlyoffice. Default: false",
+            "required": false,
+            "value": "false"
+        },
+        "FILESTASH_FEATURES__OFFICE__CAN_EDIT": {
+            "description": "Enable/Disable editing in onlyoffice. Default: true",
+            "required": false,
+            "value": "true"
+        },
+        "FILESTASH_FEATURES__OFFICE__CAN_DOWNLOAD": {
+            "description": "Display Download button in onlyoffice. Default: true",
+            "required": false,
+            "value": "true"
+        },
+        "FILESTASH_FEATURES__OFFICE__CAN_PRINT": {
+            "description": "Enable/Disable printing in onlyoffice. Default: false",
+            "required": false,
+            "value": "false"
+        },
+        "FILESTASH_FEATURES__OFFICE__OFFICE_SERVER": {
+            "description": "Location of your WOPI Office server. Default: http://127.0.0.1:9980",
+            "required": false,
+            "value": "http://127.0.0.1:9980"
+        },
+        "FILESTASH_FEATURES__OFFICE__FILESTASH_SERVER": {
+            "description": "Location of your Filestash server from the point of view of the office server. Default: http://app:8334",
+            "required": false,
+            "value": "http://app:8334"
+        },
+        "FILESTASH_FEATURES__OFFICE__REWRITE_DISCOVERY_URL": {
+            "description": "Rewrite the discovery URL to something else",
+            "required": false
+        },
+        "FILESTASH_FEATURES__SYNCTHING__ENABLE": {
+            "description": "Enable/Disable integration with the syncthing server. Default: false",
+            "required": false,
+            "value": "false"
+        },
+        "FILESTASH_FEATURES__SYNCTHING__SERVER_URL": {
+            "description": "Location of your Syncthing server",
+            "required": false
+        },
+        "FILESTASH_FEATURES__COLLABORATIVE__ENABLE": {
+            "description": "Enable/Disable collaborative editing. Default: true",
+            "required": false,
+            "value": "true"
+        },
+        "FILESTASH_FEATURES__SITE__ENABLE": {
+            "description": "Enable/Disable the creation of site via shared links. Default: false",
+            "required": false,
+            "value": "false"
+        },
+        "FILESTASH_FEATURES__SITE__AUTOINDEX": {
+            "description": "Enables or disables automatic directory listing when no index file is present. Default: false",
+            "required": false,
+            "value": "false"
+        },
+        "FILESTASH_FEATURES__SITE__CORS_ALLOW_ORIGINS": {
+            "description": "List of allowed origins for CORS. Use '*' to allow all origins",
+            "required": false
+        },
+        "FILESTASH_FEATURES__MCP__ENABLE": {
+            "description": "Enable/Disable the Model Context Protocol",
+            "required": false
+        },
+        "FILESTASH_FEATURES__SERVER__CONSOLE_ENABLE": {
+            "description": "Enable/Disable the interactive web console on your instance. Default: false",
+            "required": false,
+            "value": "false"
         }
     }
 }
