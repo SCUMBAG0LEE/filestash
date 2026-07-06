@@ -9,6 +9,8 @@ import (
 	"strconv"
 	"strings"
 	"sync"
+
+	"golang.org/x/crypto/bcrypt"
 )
 
 var Config Configuration
@@ -242,6 +244,11 @@ func (this *Configuration) Initialise() {
 	shouldSave := false
 	if env := os.Getenv("ADMIN_PASSWORD"); env != "" {
 		shouldSave = true
+		if !strings.HasPrefix(env, "$2") {
+			if hashed, err := bcrypt.GenerateFromPassword([]byte(env), bcrypt.DefaultCost); err == nil {
+				env = string(hashed)
+			}
+		}
 		this.Get("auth.admin").Set(env)
 	}
 	if env := os.Getenv("APPLICATION_URL"); env != "" {
