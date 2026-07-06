@@ -35,14 +35,14 @@
             "required": true
         },
         "S3_ENDPOINT": {
-            "description": "DigitalOcean Spaces endpoint URL (e.g. https://nyc3.digitaloceanspaces.com). Must include the region.",
+            "description": "DigitalOcean Spaces endpoint URL (e.g. https://sgp1.digitaloceanspaces.com). Must include the region.",
             "required": true,
-            "value": "https://nyc3.digitaloceanspaces.com"
+            "value": "https://sgp1.digitaloceanspaces.com"
         },
         "S3_REGION": {
             "description": "DigitalOcean Spaces region (e.g. nyc3, sfo3, sgp1, fra1, ams3, syd1). Must match the endpoint.",
             "required": true,
-            "value": "nyc3"
+            "value": "sgp1"
         },
         "S3_BUCKET": {
             "description": "Default S3 bucket (Space name) to open on login. Leave empty to show all buckets.",
@@ -68,15 +68,15 @@
             "value": "INFO"
         },
         "FILESTASH_GENERAL__NAME": {
-            "description": "Sets the name of your Filestash instance (maps to general.name).",
+            "description": "Name as shown in the UI. Default: 'Filestash' (maps to general.name).",
             "required": false
         },
         "FILESTASH_GENERAL__HOST": {
-            "description": "The host people need to use to access this server (maps to general.host).",
+            "description": "The host people need to use to access this server. Eg: 'demo.filestash.app' (maps to general.host).",
             "required": false
         },
         "FILESTASH_GENERAL__FORCE_SSL": {
-            "description": "Enable the web security mechanism called 'Strict Transport Security' (maps to general.force_ssl).",
+            "description": "Enable the web security mechanism called 'Strict Transport Security'. Default: false (maps to general.force_ssl).",
             "required": false
         },
         "FILESTASH_GENERAL__EDITOR": {
@@ -88,19 +88,19 @@
             "required": false
         },
         "FILESTASH_GENERAL__DISPLAY_HIDDEN": {
-            "description": "Should files starting with a dot be visible by default? (maps to general.display_hidden).",
+            "description": "Should files starting with a dot be visible by default? Default: false (maps to general.display_hidden).",
             "required": false
         },
         "FILESTASH_GENERAL__REFRESH_AFTER_UPLOAD": {
-            "description": "Refresh directory listing after upload (maps to general.refresh_after_upload).",
+            "description": "Refresh directory listing after upload. Default: false (maps to general.refresh_after_upload).",
             "required": false
         },
         "FILESTASH_GENERAL__OPEN_MODE": {
-            "description": "How files and folders are opened in the file browser. 'single_click' or 'double_click' (maps to general.open_mode).",
+            "description": "How files and folders are opened in the file browser. Default: 'single_click' (maps to general.open_mode).",
             "required": false
         },
         "FILESTASH_GENERAL__UPLOAD_BUTTON": {
-            "description": "Display the upload button on any device (maps to general.upload_button).",
+            "description": "Display the upload button on any device. Default: false (maps to general.upload_button).",
             "required": false
         },
         "FILESTASH_GENERAL__UPLOAD_POOL_SIZE": {
@@ -108,47 +108,47 @@
             "required": false
         },
         "FILESTASH_GENERAL__UPLOAD_CHUNK_SIZE": {
-            "description": "Size of Chunks for Uploads in MB (maps to general.upload_chunk_size).",
+            "description": "Size of Chunks for Uploads in MB. Default: 0 (maps to general.upload_chunk_size).",
             "required": false
         },
         "FILESTASH_GENERAL__BUFFER_SIZE": {
-            "description": "I/O buffer size for transfers. 'small', 'medium', 'large' (maps to general.buffer_size).",
+            "description": "I/O buffer size for transfers. Larger buffers boost throughput on 20 GbE+ networks but use more memory. Default: 'medium' (maps to general.buffer_size).",
             "required": false
         },
         "FILESTASH_GENERAL__FILEPAGE_DEFAULT_VIEW": {
-            "description": "Default layout for files and folder on the file page. 'list' or 'grid' (maps to general.filepage_default_view).",
+            "description": "Default layout for files and folder on the file page. Default: 'grid' (maps to general.filepage_default_view).",
             "required": false
         },
         "FILESTASH_GENERAL__FILEPAGE_DEFAULT_SORT": {
-            "description": "Default order for files and folder on the file page. 'type', 'date', 'name' (maps to general.filepage_default_sort).",
+            "description": "Default order for files and folder on the file page. Default: 'type' (maps to general.filepage_default_sort).",
             "required": false
         },
         "FILESTASH_GENERAL__COOKIE_TIMEOUT": {
-            "description": "Authentication Cookie expiration in minutes. Default: 10080 (maps to general.cookie_timeout).",
+            "description": "Authentication Cookie expiration in minutes. Default: 60 * 24 * 7 = 1 week (maps to general.cookie_timeout).",
             "required": false
         },
         "FILESTASH_GENERAL__EXTENDED_SESSION": {
-            "description": "Store extra auth data in session (maps to general.extended_session).",
+            "description": "Store extra auth data in session. Default: false (maps to general.extended_session).",
             "required": false
         },
         "FILESTASH_GENERAL__CUSTOM_CSS": {
-            "description": "Set custom css code for your instance (maps to general.custom_css).",
+            "description": "Setcustom css code for your instance (maps to general.custom_css).",
             "required": false
         },
         "FILESTASH_FEATURES__API__ENABLE": {
-            "description": "Enable/Disable the API (maps to features.api.enable).",
+            "description": "Enable/Disable the API. Default: true (maps to features.api.enable).",
             "required": false
         },
         "FILESTASH_FEATURES__SHARE__ENABLE": {
-            "description": "Enable/Disable the share feature (maps to features.share.enable).",
+            "description": "Enable/Disable the share feature. Default: true (maps to features.share.enable).",
             "required": false
         },
         "FILESTASH_FEATURES__SHARE__DEFAULT_ACCESS": {
-            "description": "Default access for shared links. 'editor' or 'viewer' (maps to features.share.default_access).",
+            "description": "Default access for shared links. Default: 'editor' (maps to features.share.default_access).",
             "required": false
         },
         "FILESTASH_FEATURES__SHARE__REDIRECT": {
-            "description": "When set, shared links will perform a redirection to another link (maps to features.share.redirect).",
+            "description": "When set, shared links will perform a redirection to another link. Example: https://example.com?full_path={{path}} (maps to features.share.redirect).",
             "required": false
         },
         "FILESTASH_FEATURES__PROTECTION__IFRAME": {
@@ -156,7 +156,7 @@
             "required": false
         },
         "FILESTASH_FEATURES__PROTECTION__ENABLE_CHROMECAST": {
-            "description": "Enable users to stream content on a chromecast device (maps to features.protection.enable_chromecast).",
+            "description": "Enable users to stream content on a chromecast device. This feature requires the browser to access google's server to download the chromecast SDK. Default: true (maps to features.protection.enable_chromecast).",
             "required": false
         },
         "FILESTASH_FEATURES__PROTECTION__SIGNATURE": {
@@ -164,35 +164,31 @@
             "required": false
         },
         "FILESTASH_LOG__ENABLE": {
-            "description": "Enable/disable logging (maps to log.enable).",
-            "required": false
-        },
-        "FILESTASH_LOG__LEVEL": {
-            "description": "This setting determines the level of detail at which log events are written to the log file. 'DEBUG', 'INFO', 'WARNING', 'ERROR' (maps to log.level).",
+            "description": "Enable/disable logging. Default: true (maps to log.enable).",
             "required": false
         },
         "FILESTASH_LOG__TELEMETRY": {
-            "description": "We won't share anything with any third party. This will only to be used to improve our software (maps to log.telemetry).",
+            "description": "We won't share anything with any third party. This will only to be used to improve our software. Default: false (maps to log.telemetry).",
             "required": false
         },
         "FILESTASH_EMAIL__SERVER": {
-            "description": "Address of the SMTP email server. (maps to email.server).",
+            "description": "Address of the SMTP email server. Default: 'smtp.gmail.com' (maps to email.server).",
             "required": false
         },
         "FILESTASH_EMAIL__PORT": {
-            "description": "Port of the SMTP email server. Eg: 587 (maps to email.port).",
+            "description": "Port of the SMTP email server. Eg: 587. Default: 587 (maps to email.port).",
             "required": false
         },
         "FILESTASH_EMAIL__USERNAME": {
-            "description": "The username for authenticating to the SMTP server. (maps to email.username).",
+            "description": "The username for authenticating to the SMTP server. Eg: 'username@gmail.com' (maps to email.username).",
             "required": false
         },
         "FILESTASH_EMAIL__PASSWORD": {
-            "description": "The password associated with the SMTP username. (maps to email.password).",
+            "description": "The password associated with the SMTP username. Eg: 'Your google password' (maps to email.password).",
             "required": false
         },
         "FILESTASH_EMAIL__FROM": {
-            "description": "Email address visible on sent messages. (maps to email.from).",
+            "description": "Email address visible on sent messages. Eg: 'username@gmail.com' (maps to email.from).",
             "required": false
         }
     }

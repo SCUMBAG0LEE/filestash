@@ -292,7 +292,7 @@ func (this *Configuration) Initialise() {
 			el := this.Get(suffix)
 			if el != nil && el.currentElement != nil {
 				var finalVal interface{} = pair[1]
-				if el.currentElement.Type == "boolean" {
+				if el.currentElement.Type == "boolean" || el.currentElement.Type == "enable" {
 					if strings.ToLower(pair[1]) == "true" || pair[1] == "1" {
 						finalVal = true
 					} else {
