@@ -258,11 +258,57 @@ func (this *Configuration) Initialise() {
 		env = strings.TrimRight(env, "/")
 		_ = this.Get("general.host").Set(env).String()
 	}
+
+	// Directly replace placeholders in attribute mapping with actual env vars
+	attrMap := this.Get("middleware.attribute_mapping.params").String()
+	if strings.Contains(attrMap, "{{ .ENV_S3_ACCESS_KEY_ID }}") {
+		shouldSave = true
+		attrMap = strings.ReplaceAll(attrMap, "{{ .ENV_S3_ACCESS_KEY_ID }}", os.Getenv("S3_ACCESS_KEY_ID"))
+		attrMap = strings.ReplaceAll(attrMap, "{{ .ENV_S3_SECRET_ACCESS_KEY }}", os.Getenv("S3_SECRET_ACCESS_KEY"))
+		attrMap = strings.ReplaceAll(attrMap, "{{ .ENV_S3_ENDPOINT }}", os.Getenv("S3_ENDPOINT"))
+		attrMap = strings.ReplaceAll(attrMap, "{{ .ENV_S3_REGION }}", os.Getenv("S3_REGION"))
+		attrMap = strings.ReplaceAll(attrMap, "{{ .ENV_S3_BUCKET }}", os.Getenv("S3_BUCKET"))
+		this.Get("middleware.attribute_mapping.params").Set(attrMap)
+	}
+
 	if this.Get("general.secret_key").String() == "" {
 		shouldSave = true
 		key := RandomString(16)
 		this.Get("general.secret_key").Set(key)
 	}
+
+	// Dynamic environment variable overrides
+	for _, envStr := range os.Environ() {
+		pair := strings.SplitN(envStr, "=", 2)
+		if len(pair) == 2 && strings.HasPrefix(pair[0], "FILESTASH_") {
+			// Ignore standard FILESTASH_PORT so it isn't mapped to filestash.port (which is invalid config)
+			if pair[0] == "FILESTASH_PORT" {
+				continue
+			}
+			suffix := strings.TrimPrefix(pair[0], "FILESTASH_")
+			suffix = strings.ReplaceAll(suffix, "__", ".")
+			suffix = strings.ToLower(suffix)
+
+			el := this.Get(suffix)
+			if el != nil && el.currentElement != nil {
+				var finalVal interface{} = pair[1]
+				if el.currentElement.Type == "boolean" {
+					if strings.ToLower(pair[1]) == "true" || pair[1] == "1" {
+						finalVal = true
+					} else {
+						finalVal = false
+					}
+				} else if el.currentElement.Type == "number" {
+					if n, err := strconv.Atoi(pair[1]); err == nil {
+						finalVal = n
+					}
+				}
+				el.Set(finalVal)
+				shouldSave = true
+			}
+		}
+	}
+
 	if shouldSave {
 		this.Save()
 	}

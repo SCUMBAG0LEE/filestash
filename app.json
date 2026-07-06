@@ -66,6 +66,134 @@
             "description": "Logging verbosity. Options: DEBUG, INFO, WARNING, ERROR. Default: INFO.",
             "required": false,
             "value": "INFO"
+        },
+        "FILESTASH_GENERAL__NAME": {
+            "description": "Sets the name of your Filestash instance (maps to general.name).",
+            "required": false
+        },
+        "FILESTASH_GENERAL__HOST": {
+            "description": "The host people need to use to access this server (maps to general.host).",
+            "required": false
+        },
+        "FILESTASH_GENERAL__FORCE_SSL": {
+            "description": "Enable the web security mechanism called 'Strict Transport Security' (maps to general.force_ssl).",
+            "required": false
+        },
+        "FILESTASH_GENERAL__EDITOR": {
+            "description": "Keybinding to be use in the editor. Default: 'emacs' (maps to general.editor).",
+            "required": false
+        },
+        "FILESTASH_GENERAL__LOGOUT": {
+            "description": "Redirection URL whenever user click on the logout button (maps to general.logout).",
+            "required": false
+        },
+        "FILESTASH_GENERAL__DISPLAY_HIDDEN": {
+            "description": "Should files starting with a dot be visible by default? (maps to general.display_hidden).",
+            "required": false
+        },
+        "FILESTASH_GENERAL__REFRESH_AFTER_UPLOAD": {
+            "description": "Refresh directory listing after upload (maps to general.refresh_after_upload).",
+            "required": false
+        },
+        "FILESTASH_GENERAL__OPEN_MODE": {
+            "description": "How files and folders are opened in the file browser. 'single_click' or 'double_click' (maps to general.open_mode).",
+            "required": false
+        },
+        "FILESTASH_GENERAL__UPLOAD_BUTTON": {
+            "description": "Display the upload button on any device (maps to general.upload_button).",
+            "required": false
+        },
+        "FILESTASH_GENERAL__UPLOAD_POOL_SIZE": {
+            "description": "Maximum number of files upload in parallel. Default: 15 (maps to general.upload_pool_size).",
+            "required": false
+        },
+        "FILESTASH_GENERAL__UPLOAD_CHUNK_SIZE": {
+            "description": "Size of Chunks for Uploads in MB (maps to general.upload_chunk_size).",
+            "required": false
+        },
+        "FILESTASH_GENERAL__BUFFER_SIZE": {
+            "description": "I/O buffer size for transfers. 'small', 'medium', 'large' (maps to general.buffer_size).",
+            "required": false
+        },
+        "FILESTASH_GENERAL__FILEPAGE_DEFAULT_VIEW": {
+            "description": "Default layout for files and folder on the file page. 'list' or 'grid' (maps to general.filepage_default_view).",
+            "required": false
+        },
+        "FILESTASH_GENERAL__FILEPAGE_DEFAULT_SORT": {
+            "description": "Default order for files and folder on the file page. 'type', 'date', 'name' (maps to general.filepage_default_sort).",
+            "required": false
+        },
+        "FILESTASH_GENERAL__COOKIE_TIMEOUT": {
+            "description": "Authentication Cookie expiration in minutes. Default: 10080 (maps to general.cookie_timeout).",
+            "required": false
+        },
+        "FILESTASH_GENERAL__EXTENDED_SESSION": {
+            "description": "Store extra auth data in session (maps to general.extended_session).",
+            "required": false
+        },
+        "FILESTASH_GENERAL__CUSTOM_CSS": {
+            "description": "Set custom css code for your instance (maps to general.custom_css).",
+            "required": false
+        },
+        "FILESTASH_FEATURES__API__ENABLE": {
+            "description": "Enable/Disable the API (maps to features.api.enable).",
+            "required": false
+        },
+        "FILESTASH_FEATURES__SHARE__ENABLE": {
+            "description": "Enable/Disable the share feature (maps to features.share.enable).",
+            "required": false
+        },
+        "FILESTASH_FEATURES__SHARE__DEFAULT_ACCESS": {
+            "description": "Default access for shared links. 'editor' or 'viewer' (maps to features.share.default_access).",
+            "required": false
+        },
+        "FILESTASH_FEATURES__SHARE__REDIRECT": {
+            "description": "When set, shared links will perform a redirection to another link (maps to features.share.redirect).",
+            "required": false
+        },
+        "FILESTASH_FEATURES__PROTECTION__IFRAME": {
+            "description": "list of domains who can use the application from an iframe. eg: https://example.com (maps to features.protection.iframe).",
+            "required": false
+        },
+        "FILESTASH_FEATURES__PROTECTION__ENABLE_CHROMECAST": {
+            "description": "Enable users to stream content on a chromecast device (maps to features.protection.enable_chromecast).",
+            "required": false
+        },
+        "FILESTASH_FEATURES__PROTECTION__SIGNATURE": {
+            "description": "Enforce signature when using URL parameters in the authentication process (maps to features.protection.signature).",
+            "required": false
+        },
+        "FILESTASH_LOG__ENABLE": {
+            "description": "Enable/disable logging (maps to log.enable).",
+            "required": false
+        },
+        "FILESTASH_LOG__LEVEL": {
+            "description": "This setting determines the level of detail at which log events are written to the log file. 'DEBUG', 'INFO', 'WARNING', 'ERROR' (maps to log.level).",
+            "required": false
+        },
+        "FILESTASH_LOG__TELEMETRY": {
+            "description": "We won't share anything with any third party. This will only to be used to improve our software (maps to log.telemetry).",
+            "required": false
+        },
+        "FILESTASH_EMAIL__SERVER": {
+            "description": "Address of the SMTP email server. (maps to email.server).",
+            "required": false
+        },
+        "FILESTASH_EMAIL__PORT": {
+            "description": "Port of the SMTP email server. Eg: 587 (maps to email.port).",
+            "required": false
+        },
+        "FILESTASH_EMAIL__USERNAME": {
+            "description": "The username for authenticating to the SMTP server. (maps to email.username).",
+            "required": false
+        },
+        "FILESTASH_EMAIL__PASSWORD": {
+            "description": "The password associated with the SMTP username. (maps to email.password).",
+            "required": false
+        },
+        "FILESTASH_EMAIL__FROM": {
+            "description": "Email address visible on sent messages. (maps to email.from).",
+            "required": false
         }
     }
 }
