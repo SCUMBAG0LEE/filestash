@@ -246,6 +246,9 @@ func (this *Configuration) Initialise() {
 	}
 	if env := os.Getenv("APPLICATION_URL"); env != "" {
 		shouldSave = true
+		env = strings.TrimPrefix(env, "http://")
+		env = strings.TrimPrefix(env, "https://")
+		env = strings.TrimRight(env, "/")
 		_ = this.Get("general.host").Set(env).String()
 	}
 	if this.Get("general.secret_key").String() == "" {
