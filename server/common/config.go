@@ -292,16 +292,20 @@ func (this *Configuration) Initialise() {
 			el := this.Get(suffix)
 			if el != nil && el.currentElement != nil {
 				var finalVal interface{} = pair[1]
-				if el.currentElement.Type == "boolean" || el.currentElement.Type == "enable" {
-					if strings.ToLower(pair[1]) == "true" || pair[1] == "1" {
+				lowerVal := strings.ToLower(pair[1])
+				
+				if lowerVal == "true" {
+					finalVal = true
+				} else if lowerVal == "false" {
+					finalVal = false
+				} else if el.currentElement.Type == "boolean" || el.currentElement.Type == "enable" {
+					if pair[1] == "1" {
 						finalVal = true
 					} else {
 						finalVal = false
 					}
-				} else if el.currentElement.Type == "number" {
-					if n, err := strconv.Atoi(pair[1]); err == nil {
-						finalVal = n
-					}
+				} else if n, err := strconv.Atoi(pair[1]); err == nil {
+					finalVal = n
 				}
 				el.Set(finalVal)
 				shouldSave = true
