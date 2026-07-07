@@ -49,16 +49,6 @@
             "required": false,
             "value": ""
         },
-        "LOCAL_BACKEND_SECRET": {
-            "description": "Password for local storage. Default: local_password",
-            "required": false,
-            "value": "local_password"
-        },
-        "LOCAL_PATH": {
-            "description": "Path for local storage. Default: /",
-            "required": false,
-            "value": "/"
-        },
         "FILESTASH_MIDDLEWARE__IDENTITY_PROVIDER__TYPE": {
             "description": "Authentication middleware type. Default: htpasswd",
             "required": false,
@@ -67,17 +57,17 @@
         "FILESTASH_MIDDLEWARE__IDENTITY_PROVIDER__PARAMS": {
             "description": "Authentication middleware parameters. Default configures user:password",
             "required": false,
-            "value": "{\"type\":\"htpasswd\",\"users\":\"user:password\"}"
+            "value": "{\"type\":\"htpasswd\",\"users\":\"user1:password1\"}"
         },
         "FILESTASH_MIDDLEWARE__ATTRIBUTE_MAPPING__RELATED_BACKEND": {
             "description": "Related backend labels for the identity provider",
             "required": false,
-            "value": "Local, S3"
+            "value": "local, S3"
         },
         "FILESTASH_MIDDLEWARE__ATTRIBUTE_MAPPING__PARAMS": {
             "description": "Attribute mapping params for backends",
             "required": false,
-            "value": "{\"S3\":{\"type\":\"s3\",\"access_key_id\":\"{{ .ENV_S3_ACCESS_KEY_ID }}\",\"secret_access_key\":\"{{ .ENV_S3_SECRET_ACCESS_KEY }}\",\"endpoint\":\"{{ .ENV_S3_ENDPOINT }}\",\"region\":\"{{ .ENV_S3_REGION }}\",\"path\":\"{{ .ENV_S3_BUCKET }}\"},\"Local\":{\"type\":\"local\",\"password\":\"local_password\",\"path\":\"/\"}}"
+            "value": "{\"Local\":{\"type\":\"local\",\"password\":\"{{ .ENV_ADMIN_PASSWORD }}\",\"path\":\"/\"},\"S3\":{\"type\":\"s3\",\"access_key_id\":\"{{ .ENV_S3_ACCESS_KEY_ID }}\",\"secret_access_key\":\"{{ .ENV_S3_SECRET_ACCESS_KEY }}\",\"endpoint\":\"{{ .ENV_S3_ENDPOINT }}\",\"region\":\"{{ .ENV_S3_REGION }}\",\"path\":\"{{ .ENV_S3_BUCKET }}\"}}"
         },
         "FILESTASH_PORT": {
             "description": "Port the application listens on. Automatically set by Heroku via $PORT — do not override unless necessary.",
