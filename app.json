@@ -57,7 +57,7 @@
         "FILESTASH_MIDDLEWARE__IDENTITY_PROVIDER__PARAMS": {
             "description": "Authentication middleware parameters. Default configures user:password",
             "required": false,
-            "value": "{\"type\":\"htpasswd\",\"users\":\"user1:password1\"}"
+            "value": "{\"type\":\"htpasswd\",\"users\":\"user1:password1\\nuser2:password2\"}"
         },
         "FILESTASH_MIDDLEWARE__ATTRIBUTE_MAPPING__RELATED_BACKEND": {
             "description": "Related backend labels for the identity provider",
