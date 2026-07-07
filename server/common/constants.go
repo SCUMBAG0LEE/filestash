@@ -75,11 +75,15 @@ var (
 
 func InitSecretDerivate(secret string) {
 	SECRET_KEY = secret
-	SECRET_KEY_DERIVATE_FOR_PROOF = Hash("PROOF_"+SECRET_KEY, len(SECRET_KEY))
-	SECRET_KEY_DERIVATE_FOR_ADMIN = Hash("ADMIN_"+SECRET_KEY, len(SECRET_KEY))
-	SECRET_KEY_DERIVATE_FOR_USER = Hash("USER_"+SECRET_KEY, len(SECRET_KEY))
-	SECRET_KEY_DERIVATE_FOR_HASH = Hash("HASH_"+SECRET_KEY, len(SECRET_KEY))
-	SECRET_KEY_DERIVATE_FOR_SIGNATURE = Hash("SGN_"+SECRET_KEY, len(SECRET_KEY))
+	keyLen := len(SECRET_KEY)
+	if keyLen > 32 || keyLen != 16 && keyLen != 24 && keyLen != 32 {
+		keyLen = 32 // Force valid AES key size if the provided secret length is invalid
+	}
+	SECRET_KEY_DERIVATE_FOR_PROOF = Hash("PROOF_"+SECRET_KEY, keyLen)
+	SECRET_KEY_DERIVATE_FOR_ADMIN = Hash("ADMIN_"+SECRET_KEY, keyLen)
+	SECRET_KEY_DERIVATE_FOR_USER = Hash("USER_"+SECRET_KEY, keyLen)
+	SECRET_KEY_DERIVATE_FOR_HASH = Hash("HASH_"+SECRET_KEY, keyLen)
+	SECRET_KEY_DERIVATE_FOR_SIGNATURE = Hash("SGN_"+SECRET_KEY, keyLen)
 }
 
 func WithBase(href string) string {
