@@ -78,7 +78,7 @@
                      "{{ . }}",
                      {{- end }}
                  ].map((src) => new Promise((onload, onerror) => document.head.appendChild(Object.assign(document.createElement("script"), {
-                     type: "module", src, onload, onerror,
+                     type: "text/javascript", src, onload, onerror,
                  })))));
                  {{ load_asset "assets/boot/bundler_complete.js" }}
              } catch (err) { console.error(err); }

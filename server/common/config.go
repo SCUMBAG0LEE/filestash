@@ -271,6 +271,19 @@ func (this *Configuration) Initialise() {
 		this.Get("middleware.attribute_mapping.params").Set(attrMap)
 	}
 
+	if os.Getenv("S3_ACCESS_KEY_ID") != "" && len(this.Conn) == 0 {
+		this.Conn = append(this.Conn, map[string]any{
+			"type": "s3",
+			"label": "Heroku Storage",
+			"s3_access_key_id": os.Getenv("S3_ACCESS_KEY_ID"),
+			"s3_secret_access_key": os.Getenv("S3_SECRET_ACCESS_KEY"),
+			"s3_endpoint": os.Getenv("S3_ENDPOINT"),
+			"s3_region": os.Getenv("S3_REGION"),
+			"s3_bucket": os.Getenv("S3_BUCKET"),
+		})
+		shouldSave = true
+	}
+
 	if this.Get("general.secret_key").String() == "" {
 		shouldSave = true
 		key := RandomString(16)
@@ -294,18 +307,16 @@ func (this *Configuration) Initialise() {
 				var finalVal interface{} = pair[1]
 				lowerVal := strings.ToLower(pair[1])
 				
-				if lowerVal == "true" {
-					finalVal = true
-				} else if lowerVal == "false" {
-					finalVal = false
-				} else if el.currentElement.Type == "boolean" || el.currentElement.Type == "enable" {
-					if pair[1] == "1" {
+				if el.currentElement.Type == "boolean" || el.currentElement.Type == "enable" {
+					if lowerVal == "true" || pair[1] == "1" {
 						finalVal = true
 					} else {
 						finalVal = false
 					}
-				} else if n, err := strconv.Atoi(pair[1]); err == nil {
-					finalVal = n
+				} else if el.currentElement.Type == "number" {
+					if n, err := strconv.Atoi(pair[1]); err == nil {
+						finalVal = n
+					}
 				}
 				el.Set(finalVal)
 				shouldSave = true

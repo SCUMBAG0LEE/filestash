@@ -69,7 +69,8 @@
         },
         "FILESTASH_GENERAL__SECRET_KEY": {
             "description": "The key that's used to encrypt and decrypt session content and shared links. If left empty, it will be automatically generated. Use with caution (maps to general.secret_key).",
-            "required": false
+            "required": false,
+            "generator": "secret"
         },
         "FILESTASH_GENERAL__NAME": {
             "description": "Name as shown in the UI. Default: 'Filestash' (maps to general.name).",
@@ -434,6 +435,56 @@
         },
         "FILESTASH_FEATURES__SERVER__CONSOLE_ENABLE": {
             "description": "Enable/Disable the interactive web console on your instance. Default: false",
+            "required": false,
+            "value": "false"
+        },
+        "FILESTASH_FEATURES__RECENT__ENABLE": {
+            "description": "Enable/Disable recent files tracking. Default: false",
+            "required": false,
+            "value": "false"
+        },
+        "FILESTASH_FEATURES__RECENT__FOLDER_NAME": {
+            "description": "Name of the folder for recent files",
+            "required": false
+        },
+        "FILESTASH_FEATURES__RECENT__ENABLE_AI": {
+            "description": "Enable AI categorization for recent files. Default: false",
+            "required": false,
+            "value": "false"
+        },
+        "FILESTASH_FEATURES__RECENT__MODEL_ADDRESS": {
+            "description": "AI Model address",
+            "required": false
+        },
+        "FILESTASH_FEATURES__RECENT__MODEL_NAME": {
+            "description": "AI Model name",
+            "required": false
+        },
+        "FILESTASH_FEATURES__RECENT__API_KEY": {
+            "description": "API Key for AI model",
+            "required": false
+        },
+        "FILESTASH_FEATURES__FAVOURITE__ENABLE": {
+            "description": "Enable/Disable favourites. Default: false",
+            "required": false,
+            "value": "false"
+        },
+        "FILESTASH_FEATURES__DESCRIPTION__ENABLE": {
+            "description": "Enable/Disable adding descriptions to files. Default: false",
+            "required": false,
+            "value": "false"
+        },
+        "FILESTASH_FEATURES__CHAT__ENABLE": {
+            "description": "Enable/Disable chat functionality. Default: false",
+            "required": false,
+            "value": "false"
+        },
+        "FILESTASH_FEATURES__SERVER__TOR_URL": {
+            "description": "Tor onion URL for exposing Filestash",
+            "required": false
+        },
+        "FILESTASH_FEATURES__OFFICE__CAN_PRINT": {
+            "description": "Enable/Disable printing in OnlyOffice. Default: false",
             "required": false,
             "value": "false"
         }
