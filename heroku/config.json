@@ -27,6 +27,10 @@
         {
             "type": "s3",
             "label": "S3"
+        },
+        {
+            "type": "local",
+            "label": "Local"
         }
     ]
 }

@@ -62,7 +62,7 @@
         "FILESTASH_MIDDLEWARE__ATTRIBUTE_MAPPING__RELATED_BACKEND": {
             "description": "Related backend labels for the identity provider",
             "required": false,
-            "value": "local, S3"
+            "value": "Local, S3"
         },
         "FILESTASH_MIDDLEWARE__ATTRIBUTE_MAPPING__PARAMS": {
             "description": "Attribute mapping params for backends",
